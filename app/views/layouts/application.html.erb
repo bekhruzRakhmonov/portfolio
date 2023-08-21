@@ -8,7 +8,6 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -27,13 +26,16 @@
       <h1>Bekhruzbek Rakhmonov</h1>
     </header>
     <main><%= yield %></main>
-    <footer class="footer">
-      <ul class="social-icons">
-        <li><%= link_to image_tag('github.png'), 'https://github.com/yourusername' %></li>
-        <li><%= link_to image_tag('linkedin.png'), 'https://linkedin.com/in/yourusername' %></li>
-        <li><%= link_to image_tag('twitter.png'), 'https://twitter.com/yourusername' %></li>
-      </ul>
-      <p>&copy; <%= Time.now.year %> Bekhruzbek Rakhmonov. All rights reserved.</p>
-    </footer>
+    <% if request.path != "/work"%>
+      <footer>
+        <ul class="social-icons">
+          <li><%= link_to image_tag('github.png'), 'https://github.com/bekhruzRakhmonov' %></li>
+          <li><%= link_to image_tag('linkedin.png'), 'https://linkedin.com/in/bekhruzbek-rakhmonov-903862225' %></li>
+          <li><%= link_to image_tag('twitter.png'), 'https://twitter.com/BehruzRaxmonov' %></li>
+        </ul>
+        <p>&copy; <%= Time.now.year %> Bekhruzbek Rakhmonov. All rights reserved.</p>
+      </footer>
+    <% end %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

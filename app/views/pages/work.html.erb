@@ -1,0 +1,28 @@
+<section class="work-section">
+  <% @data.projects.each do |project| %>
+    <div class="card mb-3">
+      <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <% project["images"].each do |image| %>
+              <div class="carousel-item active">
+                <img src="<%= image["url"] %>" class="d-block w-100 carousel-img" alt="...">
+              </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= project["title"] %></h5>
+        <p class="card-text"><%= project["description"] %></p>
+        <p class="card-text"><small class="text-body-secondary"><%= time_ago_in_words(project["created_at"]) %> ago</small></p>
+      </div>
+    </div>
+  <% end %>
+</section>
