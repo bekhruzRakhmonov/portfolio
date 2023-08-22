@@ -86,9 +86,20 @@
   justify-content: center;
   align-items: center;
 }
+
 .work-section .card {
   max-width: 800px;
 }
+
 .carousel-img {
   object-fit: cover;
+}
+
+.project-link {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
 }
