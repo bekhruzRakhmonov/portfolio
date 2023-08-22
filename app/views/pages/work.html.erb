@@ -21,7 +21,7 @@
       <div class="card-body">
         <a href="<%= project['link'] %>" class="card-title project-link"><%= project["title"] %></a>
         <p class="card-text"><%= project["description"] %></p>
-        <p class="card-text"><small class="text-body-secondary"><%= Date.strftime(project["created_at"], '%b %d, %Y') %> ago</small></p>
+        <p class="card-text"><small class="text-body-secondary"><%= Date.strptime(project["created_at"], '%b %d, %Y') %> ago</small></p>
       </div>
     </div>
   <% end %>
