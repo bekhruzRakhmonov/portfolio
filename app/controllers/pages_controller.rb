@@ -21,11 +21,6 @@ class PagesController < ApplicationController
     string_data = res.body if res.is_a?(Net::HTTPSuccess)
     projects = JSON.parse string_data
     @data = OpenStruct.new(projects: projects)
-    # projects.each do |project| 
-    #   project["images"].each do |image|
-    #     puts image["url"]
-    #   end
-    # end
   end
 
   def contact
@@ -55,8 +50,12 @@ class PagesController < ApplicationController
     end
     
     if res.code == '200'
-        
+      redirect_to :thanks
     end
+  end
+
+  def thanks
+
   end
 
   private 
