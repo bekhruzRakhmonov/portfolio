@@ -1,5 +1,5 @@
 <section class="tagline">
-  <%= image_tag 'https://avatars.githubusercontent.com/u/85542200?v=4', alt: 'My Photo', class: 'profile-photo' %>
+  <img src="<%= @image %>" alt='My Photo', class='profile-photo' >
   <p>Software Engineer</p>
   <%= link_to "View my Work", work_path, class: "btn btn-primary" %>
   <%= link_to "About me", about_path, class: "btn btn-outline-primary" %>

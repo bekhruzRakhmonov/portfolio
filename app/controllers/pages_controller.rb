@@ -2,17 +2,12 @@ require 'net/http'
 
 class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :set_profile, only: [:welcome, :about]
   
   def welcome
   end
 
   def about
-    uri = URI("#{base_uri}/users/bekhruzRakhmonov")
-    res = Net::HTTP.get_response(uri)
-    string_data = res.body if res.is_a?(Net::HTTPSuccess)
-    json_data =  JSON.parse string_data
-    @image = json_data[0]["image"]
-    @about = json_data[0]["about"]
   end
 
   def work
@@ -58,8 +53,18 @@ class PagesController < ApplicationController
 
   end
 
-  private 
+  private
+
   def contact_params
     params.permit(:name, :email, :message)
+  end
+
+  def set_profile
+    uri = URI("#{base_uri}/users/bekhruzRakhmonov")
+    res = Net::HTTP.get_response(uri)
+    string_data = res.body if res.is_a?(Net::HTTPSuccess)
+    json_data =  JSON.parse string_data
+    @image = json_data[0]["image"]
+    @about = json_data[0]["about"]
   end
 end
